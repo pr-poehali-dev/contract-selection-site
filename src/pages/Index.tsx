@@ -390,6 +390,15 @@ export default function Index() {
                 <p className="text-lg font-semibold">+7 (914) 615-39-28</p>
                 <p className="text-sm mt-2 opacity-80">Звонок бесплатный</p>
                 <p className="text-sm opacity-80">Пн-Пт: 9:00 - 18:00</p>
+                <Button 
+                  variant="outline" 
+                  size="sm"
+                  className="mt-3 bg-white/20 border-white/40 text-white hover:bg-white/30"
+                  onClick={() => window.location.href = 'tel:+79146153928'}
+                >
+                  <Icon name="Phone" size={16} className="mr-2" />
+                  Позвонить
+                </Button>
               </CardContent>
             </Card>
 
