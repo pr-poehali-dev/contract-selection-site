@@ -399,7 +399,7 @@ export default function Index() {
                 <CardTitle>Email</CardTitle>
               </CardHeader>
               <CardContent>
-                <p>info@recruitment.mil.ru</p>
+                <p>belogorskvoenkomat@gmail.com</p>
                 <p className="text-sm mt-2 opacity-80">Ответим в течение 24 часов</p>
               </CardContent>
             </Card>
