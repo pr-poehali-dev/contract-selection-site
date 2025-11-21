@@ -20,7 +20,7 @@ export default function Index() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex items-center gap-3">
               <Icon name="Shield" size={32} className="text-white" />
-              <h1 className="text-xl md:text-2xl font-bold text-white">Пункт Отбора</h1>
+              <h1 className="text-xl md:text-2xl font-bold text-white">Пункт Отбора г. Белогорск</h1>
             </div>
             <div className="flex flex-wrap justify-center gap-2 md:gap-4">
               <button onClick={() => scrollToSection('hero')} className="text-white hover:text-secondary transition-colors text-sm md:text-base">Главная</button>
@@ -326,7 +326,7 @@ export default function Index() {
 
       <section id="contacts" className="py-16 bg-primary text-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Контакты пункта отбора</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Контакты пункта отбора г. Белогорск</h2>
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <Card className="bg-white/10 backdrop-blur-sm border-white/20 text-white">
               <CardHeader>
@@ -334,8 +334,8 @@ export default function Index() {
                 <CardTitle>Адрес</CardTitle>
               </CardHeader>
               <CardContent>
-                <p>г. Москва, ул. Военная, д. 10</p>
-                <p className="text-sm mt-2 opacity-80">Ближайшее метро: Площадь Революции</p>
+                <p>г. Белогорск, Амурская область</p>
+                <p className="text-sm mt-2 opacity-80">Уточните адрес по телефону</p>
               </CardContent>
             </Card>
 
@@ -396,7 +396,7 @@ export default function Index() {
 
       <footer className="bg-primary/90 text-white py-8 border-t border-secondary">
         <div className="container mx-auto px-4 text-center">
-          <p className="text-sm opacity-80">© 2024 Пункт отбора на военную службу по контракту</p>
+          <p className="text-sm opacity-80">© 2024 Пункт отбора г. Белогорск</p>
           <p className="text-xs mt-2 opacity-60">Служи России с честью и достоинством</p>
         </div>
       </footer>
