@@ -37,11 +37,11 @@ export default function Index() {
       <section id="hero" className="relative py-20 md:py-32 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://cdn.poehali.dev/projects/4a56cef2-2ed1-4cf2-85e4-c725259630bd/files/15173720-d50e-4d8d-84f1-059cb71ebdac.jpg" 
+            src="https://cdn.poehali.dev/files/61fee5e7-0423-4e34-921d-1beda1b1fce2.png" 
             alt="Военная служба" 
-            className="w-full h-full object-cover opacity-40"
+            className="w-full h-full object-cover opacity-50"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/80 to-primary/60" />
+          <div className="absolute inset-0 bg-gradient-to-b from-primary/70 to-primary/50" />
         </div>
         
         <div className="container mx-auto px-4 relative z-10 text-white text-center">
