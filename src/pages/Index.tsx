@@ -334,8 +334,8 @@ export default function Index() {
                 <CardTitle>Адрес</CardTitle>
               </CardHeader>
               <CardContent>
-                <p>г. Белогорск, Амурская область</p>
-                <p className="text-sm mt-2 opacity-80">Уточните адрес по телефону</p>
+                <p>676805, Белогорск, Амурская область</p>
+                <p className="text-sm mt-2 opacity-80">1 этаж, пункт отбора по контракту</p>
               </CardContent>
             </Card>
 
