@@ -6,21 +6,7 @@ import Icon from '@/components/ui/icon';
 
 export default function Index() {
   const [activeSection, setActiveSection] = useState('hero');
-  const [currentSlide, setCurrentSlide] = useState(0);
   const [stats, setStats] = useState({ visitors: 0, applications: 0 });
-  
-  const slides = [
-    'https://cdn.poehali.dev/files/da88708a-363c-45f0-a05c-bb5336f446cb.png',
-    'https://cdn.poehali.dev/files/1aef62c0-4a5b-4576-8500-537e3c04ebcb.jpg',
-    'https://cdn.poehali.dev/files/55e05178-78d6-40fe-8b20-1a6633aaf07e.jpg'
-  ];
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, [slides.length]);
 
   useEffect(() => {
     fetch('https://functions.poehali.dev/8b07c457-bcd0-43aa-be26-b124e61d3f1e')
@@ -61,30 +47,12 @@ export default function Index() {
 
       <section id="hero" className="relative py-20 md:py-32 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          {slides.map((slide, index) => (
-            <img 
-              key={index}
-              src={slide}
-              alt="Военная служба" 
-              className={`absolute inset-0 w-full h-full object-cover opacity-50 transition-opacity duration-1000 ${
-                index === currentSlide ? 'opacity-50' : 'opacity-0'
-              }`}
-            />
-          ))}
+          <img 
+            src="https://cdn.poehali.dev/files/96cf52b8-61b7-48b3-87c6-47cf0c28a2a5.jpg"
+            alt="Военная служба" 
+            className="w-full h-full object-cover opacity-50"
+          />
           <div className="absolute inset-0 bg-gradient-to-b from-primary/70 to-primary/50" />
-        </div>
-        
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 flex gap-2">
-          {slides.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentSlide(index)}
-              className={`w-3 h-3 rounded-full transition-all ${
-                index === currentSlide ? 'bg-white w-8' : 'bg-white/50'
-              }`}
-              aria-label={`Перейти к слайду ${index + 1}`}
-            />
-          ))}
         </div>
         
         <div className="container mx-auto px-4 relative z-10 text-white text-center">
