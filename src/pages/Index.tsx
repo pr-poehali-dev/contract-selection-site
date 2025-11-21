@@ -9,9 +9,9 @@ export default function Index() {
   const [currentSlide, setCurrentSlide] = useState(0);
   
   const slides = [
-    'https://cdn.poehali.dev/files/61fee5e7-0423-4e34-921d-1beda1b1fce2.png',
-    'https://cdn.poehali.dev/projects/4a56cef2-2ed1-4cf2-85e4-c725259630bd/files/557686e3-10c7-41d1-bf02-fb2f7d4352ef.jpg',
-    'https://cdn.poehali.dev/projects/4a56cef2-2ed1-4cf2-85e4-c725259630bd/files/24877ac6-af2b-4798-8df2-6e39a21c6d94.jpg'
+    'https://cdn.poehali.dev/files/da88708a-363c-45f0-a05c-bb5336f446cb.png',
+    'https://cdn.poehali.dev/files/1aef62c0-4a5b-4576-8500-537e3c04ebcb.jpg',
+    'https://cdn.poehali.dev/files/55e05178-78d6-40fe-8b20-1a6633aaf07e.jpg'
   ];
 
   useEffect(() => {
