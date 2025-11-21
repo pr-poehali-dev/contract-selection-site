@@ -400,6 +400,17 @@ export default function Index() {
           <p className="text-xs mt-2 opacity-60">Служи России с честью и достоинством</p>
         </div>
       </footer>
+
+      <button
+        onClick={() => window.open('https://wa.me/79146153928?text=Здравствуйте!%20Хочу%20подать%20заявку%20на%20службу%20по%20контракту', '_blank')}
+        className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-2xl transition-all duration-300 hover:scale-110 z-50 group"
+        aria-label="Написать в WhatsApp"
+      >
+        <Icon name="MessageCircle" size={32} />
+        <span className="absolute bottom-full right-0 mb-2 px-3 py-1 bg-gray-900 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+          Написать в WhatsApp
+        </span>
+      </button>
     </div>
   );
 }
