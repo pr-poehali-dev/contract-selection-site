@@ -335,7 +335,7 @@ export default function Index() {
                 <CardTitle>Телефон</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-lg font-semibold">8 (800) 100-00-00</p>
+                <p className="text-lg font-semibold">+7 (914) 615-39-28</p>
                 <p className="text-sm mt-2 opacity-80">Звонок бесплатный</p>
                 <p className="text-sm opacity-80">Пн-Пт: 9:00 - 18:00</p>
               </CardContent>
