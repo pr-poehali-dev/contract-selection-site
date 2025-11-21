@@ -337,6 +337,15 @@ export default function Index() {
                 <p>676805, Белогорск, Амурская область</p>
                 <p className="mt-1">ул. Ленина, 93</p>
                 <p className="text-sm mt-2 opacity-80">1 этаж, пункт отбора по контракту</p>
+                <Button 
+                  variant="outline" 
+                  size="sm"
+                  className="mt-3 bg-white/20 border-white/40 text-white hover:bg-white/30"
+                  onClick={() => window.open('https://yandex.ru/maps/?text=Белогорск,%20Амурская%20область,%20улица%20Ленина,%2093', '_blank')}
+                >
+                  <Icon name="Navigation" size={16} className="mr-2" />
+                  Построить маршрут
+                </Button>
               </CardContent>
             </Card>
 
