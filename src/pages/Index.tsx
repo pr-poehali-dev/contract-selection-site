@@ -335,6 +335,7 @@ export default function Index() {
               </CardHeader>
               <CardContent>
                 <p>676805, Белогорск, Амурская область</p>
+                <p className="mt-1">ул. Ленина, 93</p>
                 <p className="text-sm mt-2 opacity-80">1 этаж, пункт отбора по контракту</p>
               </CardContent>
             </Card>
