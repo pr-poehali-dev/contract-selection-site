@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
@@ -6,6 +6,20 @@ import Icon from '@/components/ui/icon';
 
 export default function Index() {
   const [activeSection, setActiveSection] = useState('hero');
+  const [currentSlide, setCurrentSlide] = useState(0);
+  
+  const slides = [
+    'https://cdn.poehali.dev/files/61fee5e7-0423-4e34-921d-1beda1b1fce2.png',
+    'https://cdn.poehali.dev/projects/4a56cef2-2ed1-4cf2-85e4-c725259630bd/files/557686e3-10c7-41d1-bf02-fb2f7d4352ef.jpg',
+    'https://cdn.poehali.dev/projects/4a56cef2-2ed1-4cf2-85e4-c725259630bd/files/24877ac6-af2b-4798-8df2-6e39a21c6d94.jpg'
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [slides.length]);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -36,12 +50,30 @@ export default function Index() {
 
       <section id="hero" className="relative py-20 md:py-32 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img 
-            src="https://cdn.poehali.dev/files/61fee5e7-0423-4e34-921d-1beda1b1fce2.png" 
-            alt="Военная служба" 
-            className="w-full h-full object-cover opacity-50"
-          />
+          {slides.map((slide, index) => (
+            <img 
+              key={index}
+              src={slide}
+              alt="Военная служба" 
+              className={`absolute inset-0 w-full h-full object-cover opacity-50 transition-opacity duration-1000 ${
+                index === currentSlide ? 'opacity-50' : 'opacity-0'
+              }`}
+            />
+          ))}
           <div className="absolute inset-0 bg-gradient-to-b from-primary/70 to-primary/50" />
+        </div>
+        
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 flex gap-2">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`w-3 h-3 rounded-full transition-all ${
+                index === currentSlide ? 'bg-white w-8' : 'bg-white/50'
+              }`}
+              aria-label={`Перейти к слайду ${index + 1}`}
+            />
+          ))}
         </div>
         
         <div className="container mx-auto px-4 relative z-10 text-white text-center">
