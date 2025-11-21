@@ -401,6 +401,15 @@ export default function Index() {
               <CardContent>
                 <p>belogorskvoenkomat@gmail.com</p>
                 <p className="text-sm mt-2 opacity-80">Ответим в течение 24 часов</p>
+                <Button 
+                  variant="outline" 
+                  size="sm"
+                  className="mt-3 bg-white/20 border-white/40 text-white hover:bg-white/30"
+                  onClick={() => window.location.href = 'mailto:belogorskvoenkomat@gmail.com?subject=Заявка на службу по контракту&body=Здравствуйте! Хочу подать заявку на службу по контракту.'}
+                >
+                  <Icon name="Send" size={16} className="mr-2" />
+                  Написать письмо
+                </Button>
               </CardContent>
             </Card>
           </div>
