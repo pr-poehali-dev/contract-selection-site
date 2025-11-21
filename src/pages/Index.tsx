@@ -7,6 +7,7 @@ import Icon from '@/components/ui/icon';
 export default function Index() {
   const [activeSection, setActiveSection] = useState('hero');
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [stats, setStats] = useState({ visitors: 0, applications: 0 });
   
   const slides = [
     'https://cdn.poehali.dev/files/da88708a-363c-45f0-a05c-bb5336f446cb.png',
@@ -20,6 +21,16 @@ export default function Index() {
     }, 5000);
     return () => clearInterval(timer);
   }, [slides.length]);
+
+  useEffect(() => {
+    fetch('https://functions.poehali.dev/8b07c457-bcd0-43aa-be26-b124e61d3f1e')
+      .then(res => res.json())
+      .then(data => setStats(data))
+      .catch(console.error);
+    
+    fetch('https://functions.poehali.dev/8b07c457-bcd0-43aa-be26-b124e61d3f1e', { method: 'POST' })
+      .catch(console.error);
+  }, []);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -77,6 +88,16 @@ export default function Index() {
         </div>
         
         <div className="container mx-auto px-4 relative z-10 text-white text-center">
+          <div className="flex justify-center gap-8 mb-8">
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg px-6 py-3 border border-white/20">
+              <div className="text-3xl font-bold">{stats.visitors}</div>
+              <div className="text-sm opacity-80">Посетителей</div>
+            </div>
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg px-6 py-3 border border-white/20">
+              <div className="text-3xl font-bold">{stats.applications}</div>
+              <div className="text-sm opacity-80">Заявок подано</div>
+            </div>
+          </div>
           <h2 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">Служба по контракту</h2>
           <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Защищай Родину. Строй карьеру. Обеспечь будущее.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
