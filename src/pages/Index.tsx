@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import Icon from '@/components/ui/icon';
+import { QRCodeSVG } from 'qrcode.react';
 
 export default function Index() {
   const [activeSection, setActiveSection] = useState('hero');
@@ -412,7 +413,7 @@ export default function Index() {
             </Card>
           </div>
 
-          <div className="mt-12 max-w-3xl mx-auto">
+          <div className="mt-12 max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
             <Card className="bg-white/10 backdrop-blur-sm border-white/20">
               <CardHeader>
                 <CardTitle className="text-white text-center text-2xl">График работы</CardTitle>
@@ -437,6 +438,27 @@ export default function Index() {
                   </div>
                 </div>
                 <p className="text-center mt-6 text-sm opacity-80">Воскресенье - выходной день</p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white/10 backdrop-blur-sm border-white/20">
+              <CardHeader>
+                <CardTitle className="text-white text-center text-2xl">QR-код сайта</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="flex flex-col items-center justify-center space-y-4">
+                  <div className="bg-white p-4 rounded-lg">
+                    <QRCodeSVG 
+                      value={window.location.origin}
+                      size={200}
+                      level="H"
+                      includeMargin={true}
+                    />
+                  </div>
+                  <p className="text-white text-center text-sm opacity-80">
+                    Наведите камеру телефона для быстрого доступа к сайту
+                  </p>
+                </div>
               </CardContent>
             </Card>
           </div>
