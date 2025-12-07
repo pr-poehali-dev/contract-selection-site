@@ -9,6 +9,35 @@ export default function Index() {
   const [activeSection, setActiveSection] = useState('hero');
   const [stats, setStats] = useState({ visitors: 0, applications: 0 });
 
+  const downloadQRCode = () => {
+    const svg = document.getElementById('qr-code-svg');
+    if (!svg) return;
+    
+    const svgData = new XMLSerializer().serializeToString(svg);
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    const img = new Image();
+    
+    img.onload = () => {
+      canvas.width = img.width;
+      canvas.height = img.height;
+      ctx!.fillStyle = 'white';
+      ctx!.fillRect(0, 0, canvas.width, canvas.height);
+      ctx!.drawImage(img, 0, 0);
+      
+      canvas.toBlob((blob) => {
+        const url = URL.createObjectURL(blob!);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'qr-code-belogorsk.png';
+        a.click();
+        URL.revokeObjectURL(url);
+      });
+    };
+    
+    img.src = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(svgData)));
+  };
+
   useEffect(() => {
     fetch('https://functions.poehali.dev/8b07c457-bcd0-43aa-be26-b124e61d3f1e')
       .then(res => res.json())
@@ -449,6 +478,7 @@ export default function Index() {
                 <div className="flex flex-col items-center justify-center space-y-4">
                   <div className="bg-white p-4 rounded-lg">
                     <QRCodeSVG 
+                      id="qr-code-svg"
                       value={window.location.origin}
                       size={200}
                       level="H"
@@ -458,6 +488,15 @@ export default function Index() {
                   <p className="text-white text-center text-sm opacity-80">
                     Наведите камеру телефона для быстрого доступа к сайту
                   </p>
+                  <Button 
+                    variant="outline" 
+                    size="sm"
+                    className="bg-white/20 border-white/40 text-white hover:bg-white/30"
+                    onClick={downloadQRCode}
+                  >
+                    <Icon name="Download" size={16} className="mr-2" />
+                    Скачать QR-код
+                  </Button>
                 </div>
               </CardContent>
             </Card>
