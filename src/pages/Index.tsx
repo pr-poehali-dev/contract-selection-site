@@ -34,6 +34,75 @@ export default function Index() {
     }
   };
 
+  const downloadPrintable = () => {
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    canvas.width = 800;
+    canvas.height = 1000;
+
+    ctx.fillStyle = '#1a472a';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = '#ffffff';
+    ctx.font = 'bold 32px Arial';
+    ctx.textAlign = 'center';
+    ctx.fillText('Пункт отбора г. Белогорск', canvas.width / 2, 60);
+
+    ctx.font = '20px Arial';
+    ctx.fillText('Служба по контракту в Вооруженных Силах РФ', canvas.width / 2, 100);
+
+    const qrSvg = document.querySelector('#qr-code-print') as SVGElement;
+    if (qrSvg) {
+      const svgData = new XMLSerializer().serializeToString(qrSvg);
+      const img = new Image();
+      img.onload = () => {
+        ctx.drawImage(img, (canvas.width - 200) / 2, 140, 200, 200);
+
+        ctx.font = '18px Arial';
+        ctx.fillText('Наведите камеру для быстрого доступа', canvas.width / 2, 370);
+
+        ctx.textAlign = 'left';
+        ctx.font = 'bold 24px Arial';
+        ctx.fillText('Контакты:', 80, 440);
+
+        ctx.font = '20px Arial';
+        ctx.fillText('📍 г. Белогорск, ул. Ленина, 93', 80, 490);
+        ctx.fillText('📞 +7 (914) 615-39-28', 80, 540);
+        ctx.fillText('✉️  belogorskvoenkomat@gmail.com', 80, 590);
+
+        ctx.font = 'bold 24px Arial';
+        ctx.fillText('График работы:', 80, 660);
+        ctx.font = '20px Arial';
+        ctx.fillText('Пн-Пт: 09:00 - 18:00', 80, 710);
+        ctx.fillText('Сб: 10:00 - 15:00', 80, 750);
+        ctx.fillText('Вс: выходной', 80, 790);
+
+        ctx.textAlign = 'center';
+        ctx.font = '18px Arial';
+        ctx.fillStyle = '#fbbf24';
+        ctx.fillText(window.location.origin, canvas.width / 2, 870);
+
+        ctx.fillStyle = '#ffffff';
+        ctx.font = 'italic 16px Arial';
+        ctx.fillText('Служи России с честью и достоинством', canvas.width / 2, 940);
+
+        canvas.toBlob((blob) => {
+          if (blob) {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'punkt-otbora-belogorsk.png';
+            a.click();
+            URL.revokeObjectURL(url);
+          }
+        });
+      };
+      img.src = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(svgData)));
+    }
+  };
+
   useEffect(() => {
     fetch('https://functions.poehali.dev/8b07c457-bcd0-43aa-be26-b124e61d3f1e')
       .then(res => res.json())
@@ -604,6 +673,7 @@ export default function Index() {
                     <div className="flex flex-col items-center space-y-3">
                       <div className="bg-white p-4 rounded-lg">
                         <QRCodeSVG 
+                          id="qr-code-print"
                           value={window.location.origin}
                           size={160}
                           level="H"
@@ -643,6 +713,15 @@ export default function Index() {
                     >
                       <Icon name="Copy" size={16} className="mr-2" />
                       Скопировать ссылку
+                    </Button>
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      className="bg-white/20 border-white/40 text-white hover:bg-white/30"
+                      onClick={downloadPrintable}
+                    >
+                      <Icon name="Download" size={16} className="mr-2" />
+                      Скачать для печати
                     </Button>
                   </div>
                 </div>
