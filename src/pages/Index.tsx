@@ -3,39 +3,34 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import Icon from '@/components/ui/icon';
-import { QRCodeSVG } from 'qrcode.react';
+
 
 export default function Index() {
   const [activeSection, setActiveSection] = useState('hero');
   const [stats, setStats] = useState({ visitors: 0, applications: 0 });
 
-  const downloadQRCode = () => {
-    const svg = document.getElementById('qr-code-svg');
-    if (!svg) return;
-    
-    const svgData = new XMLSerializer().serializeToString(svg);
-    const canvas = document.createElement('canvas');
-    const ctx = canvas.getContext('2d');
-    const img = new Image();
-    
-    img.onload = () => {
-      canvas.width = img.width;
-      canvas.height = img.height;
-      ctx!.fillStyle = 'white';
-      ctx!.fillRect(0, 0, canvas.width, canvas.height);
-      ctx!.drawImage(img, 0, 0);
-      
-      canvas.toBlob((blob) => {
-        const url = URL.createObjectURL(blob!);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'qr-code-belogorsk.png';
-        a.click();
-        URL.revokeObjectURL(url);
-      });
-    };
-    
-    img.src = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(svgData)));
+  const copyLink = () => {
+    const link = window.location.origin;
+    navigator.clipboard.writeText(link).then(() => {
+      alert('Ссылка скопирована!');
+    });
+  };
+
+  const shareLink = async () => {
+    const link = window.location.origin;
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: 'Пункт отбора г. Белогорск',
+          text: 'Служба по контракту в Вооруженных Силах РФ',
+          url: link
+        });
+      } catch (err) {
+        console.log('Share cancelled');
+      }
+    } else {
+      copyLink();
+    }
   };
 
   useEffect(() => {
@@ -600,31 +595,36 @@ export default function Index() {
 
             <Card className="bg-white/10 backdrop-blur-sm border-white/20">
               <CardHeader>
-                <CardTitle className="text-white text-center text-2xl">QR-код сайта</CardTitle>
+                <CardTitle className="text-white text-center text-2xl">Быстрый доступ к сайту</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-col items-center justify-center space-y-4">
-                  <div className="bg-white p-4 rounded-lg">
-                    <QRCodeSVG 
-                      id="qr-code-svg"
-                      value={window.location.origin}
-                      size={200}
-                      level="H"
-                      includeMargin={true}
-                    />
+                  <div className="bg-white/20 p-6 rounded-lg border-2 border-secondary/50">
+                    <Icon name="Share2" size={80} className="text-secondary" />
                   </div>
                   <p className="text-white text-center text-sm opacity-80">
-                    Наведите камеру телефона для быстрого доступа к сайту
+                    Поделитесь ссылкой с друзьями и знакомыми
                   </p>
-                  <Button 
-                    variant="outline" 
-                    size="sm"
-                    className="bg-white/20 border-white/40 text-white hover:bg-white/30"
-                    onClick={downloadQRCode}
-                  >
-                    <Icon name="Download" size={16} className="mr-2" />
-                    Скачать QR-код
-                  </Button>
+                  <div className="flex gap-3 flex-wrap justify-center">
+                    <Button 
+                      variant="default" 
+                      size="sm"
+                      className="bg-secondary hover:bg-secondary/90 text-white"
+                      onClick={shareLink}
+                    >
+                      <Icon name="Share" size={16} className="mr-2" />
+                      Поделиться
+                    </Button>
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      className="bg-white/20 border-white/40 text-white hover:bg-white/30"
+                      onClick={copyLink}
+                    >
+                      <Icon name="Copy" size={16} className="mr-2" />
+                      Скопировать ссылку
+                    </Button>
+                  </div>
                 </div>
               </CardContent>
             </Card>
