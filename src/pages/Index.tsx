@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import Icon from '@/components/ui/icon';
+import { QRCodeSVG } from 'qrcode.react';
 
 
 export default function Index() {
@@ -598,13 +599,32 @@ export default function Index() {
                 <CardTitle className="text-white text-center text-2xl">Быстрый доступ к сайту</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="flex flex-col items-center justify-center space-y-4">
-                  <div className="bg-white/20 p-6 rounded-lg border-2 border-secondary/50">
-                    <Icon name="Share2" size={80} className="text-secondary" />
+                <div className="flex flex-col items-center justify-center space-y-6">
+                  <div className="grid md:grid-cols-2 gap-6 w-full">
+                    <div className="flex flex-col items-center space-y-3">
+                      <div className="bg-white p-4 rounded-lg">
+                        <QRCodeSVG 
+                          value={window.location.origin}
+                          size={160}
+                          level="H"
+                          includeMargin={true}
+                        />
+                      </div>
+                      <p className="text-white text-center text-xs opacity-80">
+                        Наведите камеру для быстрого доступа
+                      </p>
+                    </div>
+                    
+                    <div className="flex flex-col items-center justify-center space-y-3">
+                      <div className="bg-white/20 p-6 rounded-lg border-2 border-secondary/50">
+                        <Icon name="Share2" size={60} className="text-secondary" />
+                      </div>
+                      <p className="text-white text-center text-xs opacity-80">
+                        Поделитесь с друзьями и знакомыми
+                      </p>
+                    </div>
                   </div>
-                  <p className="text-white text-center text-sm opacity-80">
-                    Поделитесь ссылкой с друзьями и знакомыми
-                  </p>
+                  
                   <div className="flex gap-3 flex-wrap justify-center">
                     <Button 
                       variant="default" 
