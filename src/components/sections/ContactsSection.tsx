@@ -117,7 +117,7 @@ export default function ContactsSection({ copyLink, shareLink, downloadPrintable
                     <div className="bg-white p-4 rounded-lg">
                       <QRCodeSVG 
                         id="qr-code-print"
-                        value={window.location.origin}
+                        value="https://contract-selection-site.poehali.dev"
                         size={160}
                         level="H"
                         includeMargin={true}

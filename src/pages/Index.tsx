@@ -81,7 +81,7 @@ export default function Index() {
         ctx.textAlign = 'center';
         ctx.font = '18px Arial';
         ctx.fillStyle = '#fbbf24';
-        ctx.fillText(window.location.origin, canvas.width / 2, 870);
+        ctx.fillText('contract-selection-site.poehali.dev', canvas.width / 2, 870);
 
         ctx.fillStyle = '#ffffff';
         ctx.font = 'italic 16px Arial';
