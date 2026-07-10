@@ -7,7 +7,7 @@ import ContactsSection from '@/components/sections/ContactsSection';
 
 export default function Index() {
   const [activeSection, setActiveSection] = useState('hero');
-  const [stats, setStats] = useState({ visitors: 0, applications: 0 });
+  const [stats, setStats] = useState({ visitors: 0, applications: 0, week: 0, day: 0, online: 0 });
 
   const copyLink = () => {
     const link = window.location.origin;
@@ -103,13 +103,21 @@ export default function Index() {
   };
 
   useEffect(() => {
-    fetch('https://functions.poehali.dev/8b07c457-bcd0-43aa-be26-b124e61d3f1e')
-      .then(res => res.json())
-      .then(data => setStats(data))
+    const STATS_URL = 'https://functions.poehali.dev/b2603b61-d6fc-4eaa-bfd7-13a6c03d5c7e';
+
+    const loadStats = () => {
+      fetch(STATS_URL)
+        .then(res => res.json())
+        .then(data => setStats(data))
+        .catch(console.error);
+    };
+
+    fetch(STATS_URL, { method: 'POST' })
+      .then(loadStats)
       .catch(console.error);
-    
-    fetch('https://functions.poehali.dev/8b07c457-bcd0-43aa-be26-b124e61d3f1e', { method: 'POST' })
-      .catch(console.error);
+
+    const interval = setInterval(loadStats, 30000);
+    return () => clearInterval(interval);
   }, []);
 
   const scrollToSection = (sectionId: string) => {

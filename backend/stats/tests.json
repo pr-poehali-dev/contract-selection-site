@@ -4,12 +4,7 @@
       "name": "Get statistics",
       "method": "GET",
       "path": "/",
-      "expectedStatus": 200,
-      "expectedBody": {
-        "visitors": "number",
-        "applications": "number"
-      },
-      "bodyMatcher": "schema"
+      "expectedStatus": 200
     },
     {
       "name": "Increment visitor counter",

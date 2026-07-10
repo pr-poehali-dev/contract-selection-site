@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 
 interface HeroSectionProps {
-  stats: { visitors: number; applications: number };
+  stats: { visitors: number; applications: number; week: number; day: number; online: number };
 }
 
 export default function HeroSection({ stats }: HeroSectionProps) {
@@ -20,12 +20,28 @@ export default function HeroSection({ stats }: HeroSectionProps) {
       </div>
       
       <div className="container mx-auto px-4 relative z-10 text-white text-center">
-        <div className="flex justify-center gap-4 mb-10 animate-fade-in-up">
-          <div className="glass-dark rounded-2xl px-6 py-4 hover-lift">
-            <div className="text-3xl font-extrabold">{stats.visitors}</div>
-            <div className="text-sm opacity-80 mt-1">Посетителей</div>
+        <div className="flex flex-wrap justify-center gap-3 md:gap-4 mb-10 animate-fade-in-up">
+          <div className="glass-dark rounded-2xl px-5 py-4 hover-lift relative">
+            <span className="absolute top-3 right-3 flex h-2.5 w-2.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />
+            </span>
+            <div className="text-3xl font-extrabold">{stats.online}</div>
+            <div className="text-sm opacity-80 mt-1">Сейчас на сайте</div>
           </div>
-          <div className="glass-dark rounded-2xl px-6 py-4 hover-lift">
+          <div className="glass-dark rounded-2xl px-5 py-4 hover-lift">
+            <div className="text-3xl font-extrabold">{stats.day}</div>
+            <div className="text-sm opacity-80 mt-1">За сутки</div>
+          </div>
+          <div className="glass-dark rounded-2xl px-5 py-4 hover-lift">
+            <div className="text-3xl font-extrabold">{stats.week}</div>
+            <div className="text-sm opacity-80 mt-1">За неделю</div>
+          </div>
+          <div className="glass-dark rounded-2xl px-5 py-4 hover-lift">
+            <div className="text-3xl font-extrabold">{stats.visitors}</div>
+            <div className="text-sm opacity-80 mt-1">Всего</div>
+          </div>
+          <div className="glass-dark rounded-2xl px-5 py-4 hover-lift">
             <div className="text-3xl font-extrabold">{stats.applications}</div>
             <div className="text-sm opacity-80 mt-1">Заявок подано</div>
           </div>
