@@ -120,21 +120,23 @@ export default function Index() {
 
   return (
     <div className="min-h-screen bg-background">
-      <nav className="sticky top-0 z-50 bg-primary/95 backdrop-blur-sm border-b border-secondary shadow-lg">
+      <nav className="sticky top-0 z-50 gradient-primary backdrop-blur-md border-b border-white/10 shadow-soft">
         <div className="container mx-auto px-4 py-4">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex items-center gap-3">
-              <Icon name="Shield" size={32} className="text-white" />
-              <h1 className="text-xl md:text-2xl font-bold text-white">Пункт Отбора г. Белогорск</h1>
+              <div className="bg-white/10 rounded-full p-2">
+                <Icon name="Shield" size={26} className="text-white" />
+              </div>
+              <h1 className="text-lg md:text-xl font-extrabold text-white tracking-tight">Пункт Отбора г. Белогорск</h1>
             </div>
-            <div className="flex flex-wrap justify-center gap-2 md:gap-4">
-              <button onClick={() => scrollToSection('hero')} className="text-white hover:text-secondary transition-colors text-sm md:text-base">Главная</button>
-              <button onClick={() => scrollToSection('operator')} className="text-white hover:text-secondary transition-colors text-sm md:text-base font-semibold">🎯 Оператор</button>
-              <button onClick={() => scrollToSection('benefits')} className="text-white hover:text-secondary transition-colors text-sm md:text-base">Преимущества</button>
-              <button onClick={() => scrollToSection('conditions')} className="text-white hover:text-secondary transition-colors text-sm md:text-base">Условия</button>
-              <button onClick={() => scrollToSection('documents')} className="text-white hover:text-secondary transition-colors text-sm md:text-base">Документы</button>
-              <button onClick={() => scrollToSection('faq')} className="text-white hover:text-secondary transition-colors text-sm md:text-base">FAQ</button>
-              <button onClick={() => scrollToSection('contacts')} className="text-white hover:text-secondary transition-colors text-sm md:text-base">Контакты</button>
+            <div className="flex flex-wrap justify-center gap-1 md:gap-2">
+              <button onClick={() => scrollToSection('hero')} className="text-white/80 hover:text-white hover:bg-white/10 transition-all text-sm md:text-base px-3 py-1.5 rounded-full">Главная</button>
+              <button onClick={() => scrollToSection('operator')} className="text-white hover:bg-white/10 transition-all text-sm md:text-base font-semibold px-3 py-1.5 rounded-full bg-secondary/80">🎯 Оператор</button>
+              <button onClick={() => scrollToSection('benefits')} className="text-white/80 hover:text-white hover:bg-white/10 transition-all text-sm md:text-base px-3 py-1.5 rounded-full">Преимущества</button>
+              <button onClick={() => scrollToSection('conditions')} className="text-white/80 hover:text-white hover:bg-white/10 transition-all text-sm md:text-base px-3 py-1.5 rounded-full">Условия</button>
+              <button onClick={() => scrollToSection('documents')} className="text-white/80 hover:text-white hover:bg-white/10 transition-all text-sm md:text-base px-3 py-1.5 rounded-full">Документы</button>
+              <button onClick={() => scrollToSection('faq')} className="text-white/80 hover:text-white hover:bg-white/10 transition-all text-sm md:text-base px-3 py-1.5 rounded-full">FAQ</button>
+              <button onClick={() => scrollToSection('contacts')} className="text-white/80 hover:text-white hover:bg-white/10 transition-all text-sm md:text-base px-3 py-1.5 rounded-full">Контакты</button>
             </div>
           </div>
         </div>
@@ -149,7 +151,7 @@ export default function Index() {
         downloadPrintable={downloadPrintable}
       />
 
-      <footer className="bg-primary/90 text-white py-8 border-t border-secondary">
+      <footer className="gradient-primary text-white py-10 border-t border-white/10">
         <div className="container mx-auto px-4 text-center">
           <p className="text-sm opacity-80">© 2024 Пункт отбора г. Белогорск</p>
           <p className="text-xs mt-2 opacity-60">Служи России с честью и достоинством</p>
@@ -158,11 +160,11 @@ export default function Index() {
 
       <button
         onClick={() => window.open('https://wa.me/79146153928?text=Здравствуйте!%20Хочу%20подать%20заявку%20на%20службу%20по%20контракту', '_blank')}
-        className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-2xl transition-all duration-300 hover:scale-110 z-50 group"
+        className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-glow transition-all duration-300 hover:scale-110 hover:-translate-y-1 z-50 group animate-float"
         aria-label="Написать в WhatsApp"
       >
         <Icon name="MessageCircle" size={32} />
-        <span className="absolute bottom-full right-0 mb-2 px-3 py-1 bg-gray-900 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+        <span className="absolute bottom-full right-0 mb-2 px-3 py-1 bg-gray-900 text-white text-sm rounded-full opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
           Написать в WhatsApp
         </span>
       </button>

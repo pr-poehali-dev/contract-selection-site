@@ -11,13 +11,17 @@ interface ContactsSectionProps {
 
 export default function ContactsSection({ copyLink, shareLink, downloadPrintable }: ContactsSectionProps) {
   return (
-    <section id="contacts" className="py-16 bg-primary text-white">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Контакты пункта отбора г. Белогорск</h2>
+    <section id="contacts" className="py-20 gradient-primary text-white relative overflow-hidden">
+      <div className="absolute -top-32 -right-32 w-96 h-96 bg-secondary/20 rounded-full blur-3xl" />
+      <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
+      <div className="container mx-auto px-4 relative z-10">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-14 tracking-tight">Контакты пункта отбора г. Белогорск</h2>
         <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          <Card className="bg-white/10 backdrop-blur-sm border-white/20 text-white">
+          <Card className="glass-dark border-0 text-white hover-lift">
             <CardHeader>
-              <Icon name="MapPin" size={40} className="mb-4 text-secondary" />
+              <div className="w-14 h-14 rounded-2xl bg-secondary/20 flex items-center justify-center mb-4">
+                <Icon name="MapPin" size={28} className="text-secondary" />
+              </div>
               <CardTitle>Адрес</CardTitle>
             </CardHeader>
             <CardContent>
@@ -27,7 +31,7 @@ export default function ContactsSection({ copyLink, shareLink, downloadPrintable
               <Button 
                 variant="outline" 
                 size="sm"
-                className="mt-3 bg-white/20 border-white/40 text-white hover:bg-white/30"
+                className="mt-3 glass-dark border-white/40 text-white hover:bg-white/30"
                 onClick={() => window.open('https://yandex.ru/maps/?text=Белогорск,%20Амурская%20область,%20улица%20Ленина,%2093', '_blank')}
               >
                 <Icon name="Navigation" size={16} className="mr-2" />
@@ -36,9 +40,11 @@ export default function ContactsSection({ copyLink, shareLink, downloadPrintable
             </CardContent>
           </Card>
 
-          <Card className="bg-white/10 backdrop-blur-sm border-white/20 text-white">
+          <Card className="glass-dark border-0 text-white hover-lift">
             <CardHeader>
-              <Icon name="Phone" size={40} className="mb-4 text-secondary" />
+              <div className="w-14 h-14 rounded-2xl bg-secondary/20 flex items-center justify-center mb-4">
+                <Icon name="Phone" size={28} className="text-secondary" />
+              </div>
               <CardTitle>Телефон</CardTitle>
             </CardHeader>
             <CardContent>
@@ -48,7 +54,7 @@ export default function ContactsSection({ copyLink, shareLink, downloadPrintable
               <Button 
                 variant="outline" 
                 size="sm"
-                className="mt-3 bg-white/20 border-white/40 text-white hover:bg-white/30"
+                className="mt-3 glass-dark border-white/40 text-white hover:bg-white/30"
                 onClick={() => window.location.href = 'tel:+79146153928'}
               >
                 <Icon name="Phone" size={16} className="mr-2" />
@@ -57,9 +63,11 @@ export default function ContactsSection({ copyLink, shareLink, downloadPrintable
             </CardContent>
           </Card>
 
-          <Card className="bg-white/10 backdrop-blur-sm border-white/20 text-white">
+          <Card className="glass-dark border-0 text-white hover-lift">
             <CardHeader>
-              <Icon name="Mail" size={40} className="mb-4 text-secondary" />
+              <div className="w-14 h-14 rounded-2xl bg-secondary/20 flex items-center justify-center mb-4">
+                <Icon name="Mail" size={28} className="text-secondary" />
+              </div>
               <CardTitle>Email</CardTitle>
             </CardHeader>
             <CardContent>
@@ -68,7 +76,7 @@ export default function ContactsSection({ copyLink, shareLink, downloadPrintable
               <Button 
                 variant="outline" 
                 size="sm"
-                className="mt-3 bg-white/20 border-white/40 text-white hover:bg-white/30"
+                className="mt-3 glass-dark border-white/40 text-white hover:bg-white/30"
                 onClick={() => window.location.href = 'mailto:belogorskvoenkomat@gmail.com?subject=Заявка на службу по контракту&body=Здравствуйте! Хочу подать заявку на службу по контракту.'}
               >
                 <Icon name="Send" size={16} className="mr-2" />
@@ -79,7 +87,7 @@ export default function ContactsSection({ copyLink, shareLink, downloadPrintable
         </div>
 
         <div className="mt-12 max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
-          <Card className="bg-white/10 backdrop-blur-sm border-white/20">
+          <Card className="glass-dark border-0">
             <CardHeader>
               <CardTitle className="text-white text-center text-2xl">График работы</CardTitle>
             </CardHeader>
@@ -106,7 +114,7 @@ export default function ContactsSection({ copyLink, shareLink, downloadPrintable
             </CardContent>
           </Card>
 
-          <Card className="bg-white/10 backdrop-blur-sm border-white/20">
+          <Card className="glass-dark border-0">
             <CardHeader>
               <CardTitle className="text-white text-center text-2xl">Быстрый доступ к сайту</CardTitle>
             </CardHeader>
@@ -114,7 +122,7 @@ export default function ContactsSection({ copyLink, shareLink, downloadPrintable
               <div className="flex flex-col items-center justify-center space-y-6">
                 <div className="grid md:grid-cols-2 gap-6 w-full">
                   <div className="flex flex-col items-center space-y-3">
-                    <div className="bg-white p-4 rounded-lg">
+                    <div className="bg-white p-4 rounded-2xl shadow-soft">
                       <QRCodeSVG 
                         id="qr-code-print"
                         value="https://contract-selection-site.poehali.dev"
@@ -129,7 +137,7 @@ export default function ContactsSection({ copyLink, shareLink, downloadPrintable
                   </div>
                   
                   <div className="flex flex-col items-center justify-center space-y-3">
-                    <div className="bg-white/20 p-6 rounded-lg border-2 border-secondary/50">
+                    <div className="glass-dark p-6 rounded-2xl border-secondary/40">
                       <Icon name="Share2" size={60} className="text-secondary" />
                     </div>
                     <p className="text-white text-center text-xs opacity-80">
@@ -151,7 +159,7 @@ export default function ContactsSection({ copyLink, shareLink, downloadPrintable
                   <Button 
                     variant="outline" 
                     size="sm"
-                    className="bg-white/20 border-white/40 text-white hover:bg-white/30"
+                    className="glass-dark border-white/40 text-white hover:bg-white/30"
                     onClick={copyLink}
                   >
                     <Icon name="Copy" size={16} className="mr-2" />
@@ -160,7 +168,7 @@ export default function ContactsSection({ copyLink, shareLink, downloadPrintable
                   <Button 
                     variant="outline" 
                     size="sm"
-                    className="bg-white/20 border-white/40 text-white hover:bg-white/30"
+                    className="glass-dark border-white/40 text-white hover:bg-white/30"
                     onClick={downloadPrintable}
                   >
                     <Icon name="Download" size={16} className="mr-2" />

@@ -5,12 +5,12 @@ import Icon from '@/components/ui/icon';
 export default function ConditionsAndFAQ() {
   return (
     <>
-      <section id="conditions" className="py-16 bg-white">
+      <section id="conditions" className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-primary">Условия службы</h2>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-14 text-primary tracking-tight">Условия службы</h2>
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             <div className="space-y-6">
-              <Card className="bg-muted/50">
+              <Card className="bg-muted/40 border-0 shadow-soft hover-lift">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-3">
                     <Icon name="Users" className="text-secondary" />
@@ -39,7 +39,7 @@ export default function ConditionsAndFAQ() {
                 </CardContent>
               </Card>
 
-              <Card className="bg-muted/50">
+              <Card className="bg-muted/40 border-0 shadow-soft hover-lift">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-3">
                     <Icon name="Clock" className="text-secondary" />
@@ -53,7 +53,7 @@ export default function ConditionsAndFAQ() {
             </div>
 
             <div className="space-y-6">
-              <Card className="bg-muted/50">
+              <Card className="bg-muted/40 border-0 shadow-soft hover-lift">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-3">
                     <Icon name="MapPin" className="text-secondary" />
@@ -65,7 +65,7 @@ export default function ConditionsAndFAQ() {
                 </CardContent>
               </Card>
 
-              <Card className="bg-muted/50">
+              <Card className="bg-muted/40 border-0 shadow-soft hover-lift">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-3">
                     <Icon name="Briefcase" className="text-secondary" />
@@ -98,11 +98,11 @@ export default function ConditionsAndFAQ() {
         </div>
       </section>
 
-      <section id="documents" className="py-16 bg-muted/30">
+      <section id="documents" className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-primary">Необходимые документы</h2>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-14 text-primary tracking-tight">Необходимые документы</h2>
           <div className="max-w-3xl mx-auto">
-            <Card className="shadow-lg">
+            <Card className="shadow-soft border-0">
               <CardHeader>
                 <CardTitle className="text-2xl flex items-center gap-3">
                   <Icon name="FileCheck" className="text-secondary" />
@@ -110,7 +110,7 @@ export default function ConditionsAndFAQ() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="grid gap-4">
+                <div className="grid gap-3">
                   {[
                     'Паспорт гражданина РФ (оригинал и копия)',
                     'Военный билет или приписное свидетельство',
@@ -123,13 +123,13 @@ export default function ConditionsAndFAQ() {
                     'Свидетельства о рождении детей (при наличии)',
                     'Справка об отсутствии судимости'
                   ].map((doc, index) => (
-                    <div key={index} className="flex items-start gap-3 p-3 bg-white rounded-lg border border-border hover:border-primary transition-colors">
+                    <div key={index} className="flex items-start gap-3 p-4 bg-muted/30 rounded-xl border border-transparent hover:border-primary/30 hover:bg-primary/5 transition-all">
                       <Icon name="FileText" className="text-primary mt-1 flex-shrink-0" size={20} />
                       <span className="text-muted-foreground">{doc}</span>
                     </div>
                   ))}
                 </div>
-                <div className="mt-6 p-4 bg-secondary/10 rounded-lg border-l-4 border-secondary">
+                <div className="mt-6 p-4 bg-secondary/10 rounded-xl border-l-4 border-secondary">
                   <p className="text-sm text-muted-foreground flex items-start gap-2">
                     <Icon name="Info" className="text-secondary mt-1 flex-shrink-0" size={18} />
                     <span>Все документы предоставляются в оригиналах и копиях. Копии заверяются при подаче документов.</span>
@@ -141,12 +141,12 @@ export default function ConditionsAndFAQ() {
         </div>
       </section>
 
-      <section id="faq" className="py-16 bg-white">
+      <section id="faq" className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-primary">Часто задаваемые вопросы</h2>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-14 text-primary tracking-tight">Часто задаваемые вопросы</h2>
           <div className="max-w-3xl mx-auto">
             <Accordion type="single" collapsible className="space-y-4">
-              <AccordionItem value="item-1" className="border rounded-lg px-6">
+              <AccordionItem value="item-1" className="border-0 bg-muted/30 rounded-2xl px-6 shadow-soft">
                 <AccordionTrigger className="text-lg font-semibold hover:text-primary">
                   Какая зарплата у военнослужащих по контракту?
                 </AccordionTrigger>
@@ -155,7 +155,7 @@ export default function ConditionsAndFAQ() {
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="item-2" className="border rounded-lg px-6">
+              <AccordionItem value="item-2" className="border-0 bg-muted/30 rounded-2xl px-6 shadow-soft">
                 <AccordionTrigger className="text-lg font-semibold hover:text-primary">
                   Можно ли служить в своем регионе?
                 </AccordionTrigger>
@@ -164,7 +164,7 @@ export default function ConditionsAndFAQ() {
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="item-3" className="border rounded-lg px-6">
+              <AccordionItem value="item-3" className="border-0 bg-muted/30 rounded-2xl px-6 shadow-soft">
                 <AccordionTrigger className="text-lg font-semibold hover:text-primary">
                   Как происходит процесс отбора?
                 </AccordionTrigger>
@@ -173,7 +173,7 @@ export default function ConditionsAndFAQ() {
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="item-4" className="border rounded-lg px-6">
+              <AccordionItem value="item-4" className="border-0 bg-muted/30 rounded-2xl px-6 shadow-soft">
                 <AccordionTrigger className="text-lg font-semibold hover:text-primary">
                   Что происходит после подписания контракта?
                 </AccordionTrigger>
@@ -182,7 +182,7 @@ export default function ConditionsAndFAQ() {
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="item-5" className="border rounded-lg px-6">
+              <AccordionItem value="item-5" className="border-0 bg-muted/30 rounded-2xl px-6 shadow-soft">
                 <AccordionTrigger className="text-lg font-semibold hover:text-primary">
                   Можно ли расторгнуть контракт досрочно?
                 </AccordionTrigger>
@@ -191,7 +191,7 @@ export default function ConditionsAndFAQ() {
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="item-6" className="border rounded-lg px-6">
+              <AccordionItem value="item-6" className="border-0 bg-muted/30 rounded-2xl px-6 shadow-soft">
                 <AccordionTrigger className="text-lg font-semibold hover:text-primary">
                   Предоставляется ли жилье семье военнослужащего?
                 </AccordionTrigger>
