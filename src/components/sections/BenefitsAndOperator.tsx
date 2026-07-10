@@ -87,6 +87,30 @@ export default function BenefitsAndOperator({ scrollToSection }: BenefitsAndOper
               <p className="text-xl text-muted-foreground">Специальная военная специальность с повышенными выплатами</p>
             </div>
 
+            <div className="grid md:grid-cols-2 gap-6 mb-6">
+              <Card className="border-0 shadow-glow hover-lift overflow-hidden gradient-primary text-white">
+                <CardContent className="pt-6 pb-6 text-center">
+                  <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-white/15 mb-4">
+                    <Icon name="Gift" size={28} className="text-white" />
+                  </div>
+                  <p className="text-sm uppercase tracking-wide opacity-80 mb-2">Региональная выплата</p>
+                  <p className="text-4xl font-extrabold mb-1">2 500 000 ₽</p>
+                  <p className="text-sm opacity-80">единовременно при заключении контракта</p>
+                </CardContent>
+              </Card>
+
+              <Card className="border-0 shadow-glow hover-lift overflow-hidden bg-secondary text-white">
+                <CardContent className="pt-6 pb-6 text-center">
+                  <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-white/15 mb-4">
+                    <Icon name="TrendingUp" size={28} className="text-white" />
+                  </div>
+                  <p className="text-sm uppercase tracking-wide opacity-80 mb-2">За первый год службы</p>
+                  <p className="text-4xl font-extrabold mb-1">от 6 000 000 ₽</p>
+                  <p className="text-sm opacity-80">с учётом всех выплат и надбавок</p>
+                </CardContent>
+              </Card>
+            </div>
+
             <div className="grid md:grid-cols-2 gap-6 mb-8">
               <Card className="border-0 shadow-soft hover-lift overflow-hidden">
                 <CardHeader className="bg-primary/5">
